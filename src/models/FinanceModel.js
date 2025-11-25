@@ -97,6 +97,7 @@ const FinaceModel = {
         const result = await pool.query(query,[categoryId]);
         return result.rows;
     },
+    // d
     getSumIncomechartByPartyId: async (categoryId) => {
         const query = "SELECT SUM(finances.income) AS sum_income_chart, SUM(finances.expenditure) AS sum_expenditure_chart, SUM(finances.income) - SUM(finances.expenditure) AS sum_remaining_chart, parties.name AS party FROM finances INNER JOIN parties ON finances.party_id = parties.id WHERE parties.id = $1 GROUP BY parties.name";
         const result = await pool.query(query,[categoryId]);
